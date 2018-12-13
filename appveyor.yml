@@ -9,7 +9,8 @@ before_build:
   - cmd: nuget restore
 
 build_script:
-  - msbuild /t:PackageForAndroid
+  - msbuild /t:PackageForAndroid /t:Clean
+  - msbuild /t:PackageForAndroid /t:Build
 
 artifacts:
   - path: '**\*.apk'
