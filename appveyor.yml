@@ -1,0 +1,17 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+
+configuration:
+  - Debug
+  - Release
+
+before_build:
+  - cmd: nuget restore
+
+build_script:
+  - msbuild /t:package
+
+artifacts:
+  - path: '**\*.apk'
+    name: apks
+    type: File
